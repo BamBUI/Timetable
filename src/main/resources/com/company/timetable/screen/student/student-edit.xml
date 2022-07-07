@@ -5,9 +5,7 @@
     <data>
         <instance id="studentDc"
                   class="com.company.timetable.entity.Student">
-            <fetchPlan extends="_base">
-                <property name="group" fetchPlan="_base"/>
-            </fetchPlan>
+            <fetchPlan extends="_base"/>
             <loader/>
         </instance>
     </data>
@@ -30,12 +28,7 @@
         <form id="form" dataContainer="studentDc">
             <column width="350px">
                 <textField id="nameField" property="name"/>
-                <entityPicker id="groupField" property="group">
-                    <actions>
-                        <action id="entityLookup" type="entity_lookup"/>
-                        <action id="entityClear" type="entity_clear"/>
-                    </actions>
-                </entityPicker>
+                <textField id="emailField" property="email"/>
             </column>
         </form>
         <hbox id="editActions" spacing="true">

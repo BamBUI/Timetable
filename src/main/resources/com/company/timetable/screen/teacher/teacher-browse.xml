@@ -6,7 +6,9 @@
     <data readOnly="true">
         <collection id="teachersDc"
                     class="com.company.timetable.entity.Teacher">
-            <fetchPlan extends="_base"/>
+            <fetchPlan extends="_base">
+                <property name="classes" fetchPlan="_base"/>
+            </fetchPlan>
             <loader id="teachersDl">
                 <query>
                     <![CDATA[select e from Teacher e]]>

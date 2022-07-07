@@ -1,19 +1,20 @@
 package com.company.timetable.entity;
 
 import io.jmix.core.entity.annotation.JmixGeneratedValue;
+import io.jmix.core.metamodel.annotation.InstanceName;
 import io.jmix.core.metamodel.annotation.JmixEntity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 import java.util.UUID;
 
 @JmixEntity
 @Table(name = "CCU_CLASSES", indexes = {
-        @Index(name = "IDX_CCUCLASSES_AUDITORIUM_ID", columnList = "AUDITORIUM_ID"),
         @Index(name = "IDX_CCUCLASSES_TEACHER_ID", columnList = "TEACHER_ID"),
-        @Index(name = "IDX_CCUCLASSES_GROUP_ID", columnList = "GROUP_ID")
+        @Index(name = "IDX_CCUCLASSES_CLASSES_ID", columnList = "CLASSES_ID")
 })
 @Entity
 public class CCUClasses {
@@ -22,6 +23,7 @@ public class CCUClasses {
     @Id
     private UUID id;
 
+    @InstanceName
     @Column(name = "DAY_", nullable = false)
     @NotNull
     private LocalDate day;
@@ -30,26 +32,35 @@ public class CCUClasses {
     @NotNull
     private LocalTime time;
 
-    @JoinColumn(name = "AUDITORIUM_ID", nullable = false)
+    @JoinColumn(name = "CLASSES_ID", nullable = false)
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    private Auditorium auditorium;
+    private Auditorium classes;
 
     @JoinColumn(name = "TEACHER_ID", nullable = false)
-    @NotNull
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     private Teacher teacher;
 
-    @JoinColumn(name = "GROUP_ID")
-    @OneToOne(fetch = FetchType.LAZY)
-    private Group group;
+    @JoinTable(name = "CCU_CLASSES_GROUP_LINK",
+            joinColumns = @JoinColumn(name = "C_C_U_CLASSES_ID", referencedColumnName = "ID"),
+            inverseJoinColumns = @JoinColumn(name = "GROUP_ID", referencedColumnName = "ID"))
+    @ManyToMany
+    private List<Group> group;
 
-    public Group getGroup() {
+    public void setGroup(List<Group> group) {
+        this.group = group;
+    }
+
+    public List<Group> getGroup() {
         return group;
     }
 
-    public void setGroup(Group group) {
-        this.group = group;
+    public Auditorium getClasses() {
+        return classes;
+    }
+
+    public void setClasses(Auditorium classes) {
+        this.classes = classes;
     }
 
     public Teacher getTeacher() {
@@ -58,14 +69,6 @@ public class CCUClasses {
 
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
-    }
-
-    public Auditorium getAuditorium() {
-        return auditorium;
-    }
-
-    public void setAuditorium(Auditorium auditorium) {
-        this.auditorium = auditorium;
     }
 
     public LocalTime getTime() {

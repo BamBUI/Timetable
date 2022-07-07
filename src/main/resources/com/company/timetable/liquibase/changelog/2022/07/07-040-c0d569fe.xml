@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1" author="Timetable">
+        <createTable tableName="GROUP_CCU_CLASSES_LINK">
+            <column name="C_C_U_CLASSES_ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_GROUP_CCU_CLASSES_LINK"/>
+            </column>
+            <column name="GROUP_ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_GROUP_CCU_CLASSES_LINK"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="2" author="Timetable">
+        <createTable tableName="TEACHER_CCU_CLASSES_LINK">
+            <column name="C_C_U_CLASSES_ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_TEACHER_CCU_CLASSES_LINK"/>
+            </column>
+            <column name="TEACHER_ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_TEACHER_CCU_CLASSES_LINK"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="3" author="Timetable">
+        <addForeignKeyConstraint baseColumnNames="C_C_U_CLASSES_ID" baseTableName="GROUP_CCU_CLASSES_LINK"
+                                 constraintName="FK_GROCCUCLA_ON_C_C_U_CLASSES" referencedColumnNames="ID"
+                                 referencedTableName="CCU_CLASSES"/>
+    </changeSet>
+    <changeSet id="4" author="Timetable">
+        <addForeignKeyConstraint baseColumnNames="GROUP_ID" baseTableName="GROUP_CCU_CLASSES_LINK"
+                                 constraintName="FK_GROCCUCLA_ON_GROUP" referencedColumnNames="ID"
+                                 referencedTableName="GROUP_"/>
+    </changeSet>
+    <changeSet id="5" author="Timetable">
+        <addForeignKeyConstraint baseColumnNames="C_C_U_CLASSES_ID" baseTableName="TEACHER_CCU_CLASSES_LINK"
+                                 constraintName="FK_TEACCUCLA_ON_C_C_U_CLASSES" referencedColumnNames="ID"
+                                 referencedTableName="CCU_CLASSES"/>
+    </changeSet>
+    <changeSet id="6" author="Timetable">
+        <addForeignKeyConstraint baseColumnNames="TEACHER_ID" baseTableName="TEACHER_CCU_CLASSES_LINK"
+                                 constraintName="FK_TEACCUCLA_ON_TEACHER" referencedColumnNames="ID"
+                                 referencedTableName="TEACHER"/>
+    </changeSet>
+    <changeSet id="7" author="Timetable">
+        <dropColumn columnName="TEACHER_ID" tableName="CCU_CLASSES"/>
+    </changeSet>
+</databaseChangeLog>

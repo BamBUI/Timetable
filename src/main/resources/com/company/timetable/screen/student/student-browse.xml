@@ -6,9 +6,7 @@
     <data readOnly="true">
         <collection id="studentsDc"
                     class="com.company.timetable.entity.Student">
-            <fetchPlan extends="_base">
-                <property name="group" fetchPlan="_base"/>
-            </fetchPlan>
+            <fetchPlan extends="_base"/>
             <loader id="studentsDl">
                 <query>
                     <![CDATA[select e from Student e]]>
@@ -43,19 +41,17 @@
             <actions>
                 <action id="create" type="create"/>
                 <action id="edit" type="edit"/>
-                <action id="refresh" type="refresh"/>
                 <action id="remove" type="remove"/>
             </actions>
             <columns>
                 <column id="name"/>
-                <column id="group"/>
+                <column id="email"/>
             </columns>
             <simplePagination/>
             <buttonsPanel id="buttonsPanel"
                           alwaysVisible="true">
                 <button id="createBtn" action="studentsTable.create"/>
                 <button id="editBtn" action="studentsTable.edit"/>
-                <button id="refreshBtn" action="studentsTable.refresh"/>
                 <button id="removeBtn" action="studentsTable.remove"/>
             </buttonsPanel>
         </groupTable>

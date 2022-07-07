@@ -7,7 +7,7 @@
         <collection id="cCUClassesesDc"
                     class="com.company.timetable.entity.CCUClasses">
             <fetchPlan extends="_base">
-                <property name="auditorium" fetchPlan="_base"/>
+                <property name="classes" fetchPlan="_base"/>
                 <property name="teacher" fetchPlan="_base"/>
                 <property name="group" fetchPlan="_base"/>
             </fetchPlan>
@@ -50,7 +50,7 @@
             <columns>
                 <column id="day"/>
                 <column id="time"/>
-                <column id="auditorium"/>
+                <column id="classes"/>
                 <column id="teacher"/>
                 <column id="group"/>
             </columns>

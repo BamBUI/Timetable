@@ -1,9 +1,12 @@
 package com.company.timetable.entity;
 
 import io.jmix.core.entity.annotation.JmixGeneratedValue;
+import io.jmix.core.metamodel.annotation.InstanceName;
 import io.jmix.core.metamodel.annotation.JmixEntity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.List;
 import java.util.UUID;
 
 @JmixEntity
@@ -15,26 +18,45 @@ public class Group {
     @Id
     private UUID id;
 
-    @Column(name = "GROUP_NAME")
-    private String groupName;
+    @InstanceName
+    @Column(name = "NAME", nullable = false)
+    @NotNull
+    private String name;
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "group", optional = false)
-    private CCUClasses cCUClasses;
+    @JoinTable(name = "GROUP_STUDENT_LINK",
+            joinColumns = @JoinColumn(name = "GROUP_ID", referencedColumnName = "ID"),
+            inverseJoinColumns = @JoinColumn(name = "STUDENT_ID", referencedColumnName = "ID"))
+    @ManyToMany
+    private List<Student> students;
 
-    public CCUClasses getCCUClasses() {
-        return cCUClasses;
+    @JoinTable(name = "CCU_CLASSES_GROUP_LINK",
+            joinColumns = @JoinColumn(name = "GROUP_ID", referencedColumnName = "ID"),
+            inverseJoinColumns = @JoinColumn(name = "C_C_U_CLASSES_ID", referencedColumnName = "ID"))
+    @ManyToMany
+    private List<CCUClasses> classes;
+
+    public List<CCUClasses> getClasses() {
+        return classes;
     }
 
-    public void setCCUClasses(CCUClasses cCUClasses) {
-        this.cCUClasses = cCUClasses;
+    public void setClasses(List<CCUClasses> classes) {
+        this.classes = classes;
     }
 
-    public String getGroupName() {
-        return groupName;
+    public List<Student> getStudents() {
+        return students;
     }
 
-    public void setGroupName(String groupName) {
-        this.groupName = groupName;
+    public void setStudents(List<Student> students) {
+        this.students = students;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public UUID getId() {

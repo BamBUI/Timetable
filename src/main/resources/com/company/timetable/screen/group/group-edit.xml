@@ -6,9 +6,12 @@
         <instance id="groupDc"
                   class="com.company.timetable.entity.Group">
             <fetchPlan extends="_base">
-                <property name="cCUClasses" fetchPlan="_base"/>
+                <property name="students" fetchPlan="_base"/>
+                <property name="classes" fetchPlan="_base"/>
             </fetchPlan>
             <loader/>
+            <collection id="studentsDc" property="students"/>
+            <collection id="classesDc" property="classes"/>
         </instance>
     </data>
     <facets>
@@ -29,15 +32,41 @@
     <layout spacing="true" expand="editActions">
         <form id="form" dataContainer="groupDc">
             <column width="350px">
-                <textField id="groupNameField" property="groupName"/>
-                <entityPicker id="cCUClassesField" property="cCUClasses">
-                    <actions>
-                        <action id="entityLookup" type="entity_lookup"/>
-                        <action id="entityClear" type="entity_clear"/>
-                    </actions>
-                </entityPicker>
+                <textField id="nameField" property="name"/>
             </column>
         </form>
+        <groupBox id="studentsBox" caption="msg://com.company.timetable.entity/Group.students">
+            <table id="studentsTable" dataContainer="studentsDc" width="100%" height="200px">
+                <actions>
+                    <action id="add" type="add"/>
+                    <action id="exclude" type="exclude"/>
+                </actions>
+                <columns>
+                    <column id="name"/>
+                    <column id="email"/>
+                </columns>
+                <buttonsPanel>
+                    <button action="studentsTable.add"/>
+                    <button action="studentsTable.exclude"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
+        <groupBox id="classesBox" caption="msg://com.company.timetable.entity/Group.classes">
+            <table id="classesTable" dataContainer="classesDc" width="100%" height="200px">
+                <actions>
+                    <action id="add" type="add"/>
+                    <action id="exclude" type="exclude"/>
+                </actions>
+                <columns>
+                    <column id="day"/>
+                    <column id="time"/>
+                </columns>
+                <buttonsPanel>
+                    <button action="classesTable.add"/>
+                    <button action="classesTable.exclude"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
         <hbox id="editActions" spacing="true">
             <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
             <button id="closeBtn" action="windowClose"/>

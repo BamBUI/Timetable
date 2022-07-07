@@ -4,11 +4,11 @@
     <menu id="application" caption="msg://com.company.timetable/menu.application" insertBefore="administration">
         <item screen="User.browse" caption="msg://com.company.timetable.screen.user/UserBrowse.caption"/>
         <item screen="themeSettingsScreen" caption="msg://io.jmix.ui.app.themesettings/themeSettings.caption"/>
-        <item screen="Student.browse" caption="msg://com.company.timetable.screen.student/studentBrowse.menu"/>
-        <item screen="Group_.browse" caption="msg://com.company.timetable.screen.group/groupBrowse.menu"/>
-        <item screen="CCUClasses.browse" caption="msg://com.company.timetable.screen.ccuclasses/CCUClassesBrowse.menu"/>
-        <item screen="Teacher.browse" caption="msg://com.company.timetable.screen.teacher/teacherBrowse.menu"/>
         <item screen="Auditorium.browse" caption="msg://com.company.timetable.screen.auditorium/auditoriumBrowse.menu"/>
+        <item screen="Teacher.browse" caption="msg://com.company.timetable.screen.teacher/teacherBrowse.menu"/>
+        <item screen="CCUClasses.browse" caption="msg://com.company.timetable.screen.ccuclasses/CCUClassesBrowse.menu"/>
+        <item screen="Group_.browse" caption="msg://com.company.timetable.screen.group/groupBrowse.menu"/>
+        <item screen="Student.browse" caption="msg://com.company.timetable.screen.student/studentBrowse.menu"/>
     </menu>
 
 </menu-config>

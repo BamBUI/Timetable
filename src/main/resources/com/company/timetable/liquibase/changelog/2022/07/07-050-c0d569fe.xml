@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1" author="Timetable">
+        <addColumn tableName="STUDENT">
+            <column name="GROUP_ID" type="UUID"/>
+        </addColumn>
+
+        <addNotNullConstraint columnName="GROUP_ID" tableName="STUDENT"/>
+    </changeSet>
+    <changeSet id="2" author="Timetable">
+        <createIndex indexName="IDX_STUDENT_GROUP_ID" tableName="STUDENT">
+            <column name="GROUP_ID"/>
+        </createIndex>
+
+        <addForeignKeyConstraint baseColumnNames="GROUP_ID" baseTableName="STUDENT" constraintName="FK_STUDENT_ON_GROUP"
+                                 referencedColumnNames="ID" referencedTableName="GROUP_"/>
+    </changeSet>
+    <changeSet id="3" author="Timetable">
+        <dropForeignKeyConstraint baseTableName="STUDENT_GROUP_LINK" constraintName="FK_STUGRO_ON_GROUP"/>
+    </changeSet>
+    <changeSet id="4" author="Timetable">
+        <dropForeignKeyConstraint baseTableName="STUDENT_GROUP_LINK" constraintName="FK_STUGRO_ON_STUDENT"/>
+    </changeSet>
+    <changeSet id="5" author="Timetable">
+        <dropTable cascadeConstraints="true" tableName="STUDENT_GROUP_LINK"/>
+    </changeSet>
+</databaseChangeLog>

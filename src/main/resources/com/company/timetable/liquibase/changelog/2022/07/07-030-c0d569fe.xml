@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1" author="Timetable">
+        <createTable tableName="STUDENT_GROUP_LINK">
+            <column name="GROUP_ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_STUDENT_GROUP_LINK"/>
+            </column>
+            <column name="STUDENT_ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_STUDENT_GROUP_LINK"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="2" author="Timetable">
+        <addColumn tableName="GROUP_">
+            <column name="NAME" type="VARCHAR(255)"/>
+        </addColumn>
+
+        <addNotNullConstraint columnName="NAME" defaultNullValue="''" tableName="GROUP_"/>
+    </changeSet>
+    <changeSet id="3" author="Timetable">
+        <addForeignKeyConstraint baseColumnNames="GROUP_ID" baseTableName="STUDENT_GROUP_LINK"
+                                 constraintName="FK_STUGRO_ON_GROUP" referencedColumnNames="ID"
+                                 referencedTableName="GROUP_"/>
+    </changeSet>
+    <changeSet id="4" author="Timetable">
+        <addForeignKeyConstraint baseColumnNames="STUDENT_ID" baseTableName="STUDENT_GROUP_LINK"
+                                 constraintName="FK_STUGRO_ON_STUDENT" referencedColumnNames="ID"
+                                 referencedTableName="STUDENT"/>
+    </changeSet>
+    <changeSet id="5" author="Timetable">
+        <dropColumn columnName="GROUP_ID" tableName="CCU_CLASSES"/>
+    </changeSet>
+    <changeSet id="6" author="Timetable">
+        <dropColumn columnName="GROUP_ID" tableName="STUDENT"/>
+    </changeSet>
+    <changeSet id="7" author="Timetable">
+        <dropColumn columnName="GROUP_NAME" tableName="GROUP_"/>
+    </changeSet>
+</databaseChangeLog>

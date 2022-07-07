@@ -4,14 +4,15 @@ import io.jmix.core.entity.annotation.JmixGeneratedValue;
 import io.jmix.core.metamodel.annotation.InstanceName;
 import io.jmix.core.metamodel.annotation.JmixEntity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
 @JmixEntity
-@Table(name = "STUDENT", indexes = {
-        @Index(name = "IDX_STUDENT_GROUP_ID", columnList = "GROUP_ID")
-})
+@Table(name = "STUDENT")
 @Entity
 public class Student {
     @JmixGeneratedValue
@@ -24,17 +25,15 @@ public class Student {
     @NotNull
     private String name;
 
-    @JoinColumn(name = "GROUP_ID", nullable = false)
-    @NotNull
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    private Group group;
+    @Column(name = "EMAIL")
+    private String email;
 
-    public Group getGroup() {
-        return group;
+    public String getEmail() {
+        return email;
     }
 
-    public void setGroup(Group group) {
-        this.group = group;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getName() {

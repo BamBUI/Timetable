@@ -44,10 +44,10 @@
                 <action id="remove" type="remove"/>
             </actions>
             <columns>
+                <column id="name"/>
                 <column id="isLecture"/>
                 <column id="isLaboratoium"/>
                 <column id="capacity"/>
-                <column id="number"/>
             </columns>
             <simplePagination/>
             <buttonsPanel id="buttonsPanel"

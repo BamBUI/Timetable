@@ -6,11 +6,12 @@
         <instance id="cCUClassesDc"
                   class="com.company.timetable.entity.CCUClasses">
             <fetchPlan extends="_base">
-                <property name="auditorium" fetchPlan="_base"/>
+                <property name="classes" fetchPlan="_base"/>
                 <property name="teacher" fetchPlan="_base"/>
                 <property name="group" fetchPlan="_base"/>
             </fetchPlan>
             <loader/>
+            <collection id="groupDc" property="group"/>
         </instance>
     </data>
     <facets>
@@ -33,7 +34,7 @@
             <column width="350px">
                 <dateField id="dayField" property="day"/>
                 <timeField id="timeField" property="time"/>
-                <entityPicker id="auditoriumField" property="auditorium">
+                <entityPicker id="classesField" property="classes">
                     <actions>
                         <action id="entityLookup" type="entity_lookup"/>
                         <action id="entityClear" type="entity_clear"/>
@@ -45,14 +46,23 @@
                         <action id="entityClear" type="entity_clear"/>
                     </actions>
                 </entityPicker>
-                <entityPicker id="groupField" property="group">
-                    <actions>
-                        <action id="entityLookup" type="entity_lookup"/>
-                        <action id="entityClear" type="entity_clear"/>
-                    </actions>
-                </entityPicker>
             </column>
         </form>
+        <groupBox id="groupBox" caption="msg://com.company.timetable.entity/CCUClasses.group">
+            <table id="groupTable" dataContainer="groupDc" width="100%" height="200px">
+                <actions>
+                    <action id="add" type="add"/>
+                    <action id="exclude" type="exclude"/>
+                </actions>
+                <columns>
+                    <column id="name"/>
+                </columns>
+                <buttonsPanel>
+                    <button action="groupTable.add"/>
+                    <button action="groupTable.exclude"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
         <hbox id="editActions" spacing="true">
             <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
             <button id="closeBtn" action="windowClose"/>

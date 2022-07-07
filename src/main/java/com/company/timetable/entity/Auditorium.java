@@ -1,6 +1,7 @@
 package com.company.timetable.entity;
 
 import io.jmix.core.entity.annotation.JmixGeneratedValue;
+import io.jmix.core.metamodel.annotation.InstanceName;
 import io.jmix.core.metamodel.annotation.JmixEntity;
 
 import javax.persistence.Column;
@@ -19,6 +20,11 @@ public class Auditorium {
     @Id
     private UUID id;
 
+    @InstanceName
+    @Column(name = "NAME", nullable = false)
+    @NotNull
+    private String name;
+
     @Column(name = "IS_LECTURE", nullable = false)
     @NotNull
     private Boolean isLecture = false;
@@ -30,8 +36,13 @@ public class Auditorium {
     @Column(name = "CAPACITY")
     private String capacity;
 
-    @Column(name = "NUMBER_")
-    private String number;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getCapacity() {
         return capacity;
@@ -55,14 +66,6 @@ public class Auditorium {
 
     public void setIsLecture(Boolean isLecture) {
         this.isLecture = isLecture;
-    }
-
-    public String getNumber() {
-        return number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
     }
 
     public UUID getId() {
