@@ -27,28 +27,28 @@ public class Group {
             joinColumns = @JoinColumn(name = "GROUP_ID", referencedColumnName = "ID"),
             inverseJoinColumns = @JoinColumn(name = "STUDENT_ID", referencedColumnName = "ID"))
     @ManyToMany
-    private List<Student> students;
+    private List<Student> student;
 
     @JoinTable(name = "CCU_CLASSES_GROUP_LINK",
             joinColumns = @JoinColumn(name = "GROUP_ID", referencedColumnName = "ID"),
             inverseJoinColumns = @JoinColumn(name = "C_C_U_CLASSES_ID", referencedColumnName = "ID"))
     @ManyToMany
-    private List<CCUClasses> classes;
+    private List<CCUClasses> schedule;
 
-    public List<CCUClasses> getClasses() {
-        return classes;
+    public List<CCUClasses> getSchedule() {
+        return schedule;
     }
 
-    public void setClasses(List<CCUClasses> classes) {
-        this.classes = classes;
+    public void setSchedule(List<CCUClasses> schedule) {
+        this.schedule = schedule;
     }
 
-    public List<Student> getStudents() {
-        return students;
+    public List<Student> getStudent() {
+        return student;
     }
 
-    public void setStudents(List<Student> students) {
-        this.students = students;
+    public void setStudent(List<Student> student) {
+        this.student = student;
     }
 
     public String getName() {

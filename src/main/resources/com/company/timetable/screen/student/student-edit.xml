@@ -5,8 +5,11 @@
     <data>
         <instance id="studentDc"
                   class="com.company.timetable.entity.Student">
-            <fetchPlan extends="_base"/>
+            <fetchPlan extends="_base">
+                <property name="groups" fetchPlan="_base"/>
+            </fetchPlan>
             <loader/>
+            <collection id="groupsDc" property="groups"/>
         </instance>
     </data>
     <facets>
@@ -31,6 +34,21 @@
                 <textField id="emailField" property="email"/>
             </column>
         </form>
+        <groupBox id="groupsBox" caption="msg://com.company.timetable.entity/Student.groups">
+            <table id="groupsTable" dataContainer="groupsDc" width="100%" height="200px">
+                <actions>
+                    <action id="add" type="add"/>
+                    <action id="exclude" type="exclude"/>
+                </actions>
+                <columns>
+                    <column id="name"/>
+                </columns>
+                <buttonsPanel>
+                    <button action="groupsTable.add"/>
+                    <button action="groupsTable.exclude"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
         <hbox id="editActions" spacing="true">
             <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
             <button id="closeBtn" action="windowClose"/>

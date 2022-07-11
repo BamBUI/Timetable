@@ -5,9 +5,7 @@
     <data>
         <instance id="teacherDc"
                   class="com.company.timetable.entity.Teacher">
-            <fetchPlan extends="_base">
-                <property name="classes" fetchPlan="_base"/>
-            </fetchPlan>
+            <fetchPlan extends="_base"/>
             <loader/>
         </instance>
     </data>

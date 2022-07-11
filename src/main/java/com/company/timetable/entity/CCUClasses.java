@@ -23,7 +23,6 @@ public class CCUClasses {
     @Id
     private UUID id;
 
-    @InstanceName
     @Column(name = "DAY_", nullable = false)
     @NotNull
     private LocalDate day;
@@ -32,6 +31,7 @@ public class CCUClasses {
     @NotNull
     private LocalTime time;
 
+    @InstanceName
     @JoinColumn(name = "CLASSES_ID", nullable = false)
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -47,12 +47,12 @@ public class CCUClasses {
     @ManyToMany
     private List<Group> group;
 
-    public void setGroup(List<Group> group) {
-        this.group = group;
-    }
-
     public List<Group> getGroup() {
         return group;
+    }
+
+    public void setGroup(List<Group> group) {
+        this.group = group;
     }
 
     public Auditorium getClasses() {
@@ -94,4 +94,5 @@ public class CCUClasses {
     public void setId(UUID id) {
         this.id = id;
     }
+
 }

@@ -4,11 +4,9 @@ import io.jmix.core.entity.annotation.JmixGeneratedValue;
 import io.jmix.core.metamodel.annotation.InstanceName;
 import io.jmix.core.metamodel.annotation.JmixEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 import java.util.UUID;
 
 @JmixEntity
@@ -27,6 +25,20 @@ public class Student {
 
     @Column(name = "EMAIL")
     private String email;
+
+    @JoinTable(name = "GROUP_STUDENT_LINK",
+            joinColumns = @JoinColumn(name = "STUDENT_ID", referencedColumnName = "ID"),
+            inverseJoinColumns = @JoinColumn(name = "GROUP_ID", referencedColumnName = "ID"))
+    @ManyToMany
+    private List<Group> groups;
+
+    public List<Group> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(List<Group> groups) {
+        this.groups = groups;
+    }
 
     public String getEmail() {
         return email;

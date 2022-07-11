@@ -7,8 +7,9 @@
         <collection id="groupsDc"
                     class="com.company.timetable.entity.Group">
             <fetchPlan extends="_base">
-                <property name="students" fetchPlan="_base"/>
-                <property name="classes" fetchPlan="_base"/>
+                <property name="student" fetchPlan="_base">
+                    <property name="groups" fetchPlan="_base"/>
+                </property>
             </fetchPlan>
             <loader id="groupsDl">
                 <query>
@@ -48,8 +49,8 @@
             </actions>
             <columns>
                 <column id="name"/>
-                <column id="students"/>
-                <column id="classes"/>
+                <column id="student"/>
+                <column id="schedule"/>
             </columns>
             <simplePagination/>
             <buttonsPanel id="buttonsPanel"

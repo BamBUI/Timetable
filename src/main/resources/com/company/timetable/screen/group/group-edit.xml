@@ -6,12 +6,12 @@
         <instance id="groupDc"
                   class="com.company.timetable.entity.Group">
             <fetchPlan extends="_base">
-                <property name="students" fetchPlan="_base"/>
-                <property name="classes" fetchPlan="_base"/>
+                <property name="student" fetchPlan="_base">
+                    <property name="groups" fetchPlan="_base"/>
+                </property>
             </fetchPlan>
             <loader/>
-            <collection id="studentsDc" property="students"/>
-            <collection id="classesDc" property="classes"/>
+            <collection id="studentDc" property="student"/>
         </instance>
     </data>
     <facets>
@@ -35,8 +35,8 @@
                 <textField id="nameField" property="name"/>
             </column>
         </form>
-        <groupBox id="studentsBox" caption="msg://com.company.timetable.entity/Group.students">
-            <table id="studentsTable" dataContainer="studentsDc" width="100%" height="200px">
+        <groupBox id="studentBox" caption="msg://com.company.timetable.entity/Group.student">
+            <table id="studentTable" dataContainer="studentDc" width="100%" height="200px">
                 <actions>
                     <action id="add" type="add"/>
                     <action id="exclude" type="exclude"/>
@@ -46,24 +46,8 @@
                     <column id="email"/>
                 </columns>
                 <buttonsPanel>
-                    <button action="studentsTable.add"/>
-                    <button action="studentsTable.exclude"/>
-                </buttonsPanel>
-            </table>
-        </groupBox>
-        <groupBox id="classesBox" caption="msg://com.company.timetable.entity/Group.classes">
-            <table id="classesTable" dataContainer="classesDc" width="100%" height="200px">
-                <actions>
-                    <action id="add" type="add"/>
-                    <action id="exclude" type="exclude"/>
-                </actions>
-                <columns>
-                    <column id="day"/>
-                    <column id="time"/>
-                </columns>
-                <buttonsPanel>
-                    <button action="classesTable.add"/>
-                    <button action="classesTable.exclude"/>
+                    <button action="studentTable.add"/>
+                    <button action="studentTable.exclude"/>
                 </buttonsPanel>
             </table>
         </groupBox>
