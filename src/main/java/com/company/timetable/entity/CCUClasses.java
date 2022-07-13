@@ -7,7 +7,6 @@ import io.jmix.core.metamodel.annotation.JmixEntity;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -27,32 +26,38 @@ public class CCUClasses {
     @NotNull
     private LocalDate day;
 
-    @Column(name = "TIME_", nullable = false)
     @NotNull
-    private LocalTime time;
-
     @InstanceName
+    @Column(name = "TIME_", nullable = false)
+    private String time;
+
     @JoinColumn(name = "CLASSES_ID", nullable = false)
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     private Auditorium classes;
 
-    @JoinColumn(name = "TEACHER_ID", nullable = false)
+
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "TEACHER_ID", nullable = false)
     private Teacher teacher;
 
-    @JoinTable(name = "CCU_CLASSES_GROUP_LINK",
-            joinColumns = @JoinColumn(name = "C_C_U_CLASSES_ID", referencedColumnName = "ID"),
-            inverseJoinColumns = @JoinColumn(name = "GROUP_ID", referencedColumnName = "ID"))
-    @ManyToMany
+    @OneToMany(mappedBy = "schedule")
     private List<Group> group;
 
-    public List<Group> getGroup() {
-        return group;
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getTime() {
+        return time;
     }
 
     public void setGroup(List<Group> group) {
         this.group = group;
+    }
+
+    public List<Group> getGroup() {
+        return group;
     }
 
     public Auditorium getClasses() {
@@ -71,14 +76,6 @@ public class CCUClasses {
         this.teacher = teacher;
     }
 
-    public LocalTime getTime() {
-        return time;
-    }
-
-    public void setTime(LocalTime time) {
-        this.time = time;
-    }
-
     public LocalDate getDay() {
         return day;
     }
@@ -94,5 +91,6 @@ public class CCUClasses {
     public void setId(UUID id) {
         this.id = id;
     }
+
 
 }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1" author="Timetable">
+        <addColumn tableName="SUBJECT">
+            <column name="C_CU_CLASSES_ID" type="UUID"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="2" author="Timetable">
+        <addForeignKeyConstraint baseColumnNames="C_CU_CLASSES_ID" baseTableName="SUBJECT"
+                                 constraintName="FK_SUBJECT_ON_C_CU_CLASSES" referencedColumnNames="ID"
+                                 referencedTableName="CCU_CLASSES"/>
+    </changeSet>
+    <changeSet id="3" author="Timetable">
+        <dropColumn columnName="subject_id" tableName="ccu_classes"/>
+    </changeSet>
+</databaseChangeLog>

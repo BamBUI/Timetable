@@ -16,16 +16,6 @@
                   </DataStoreSettings>
                 </value>
               </entry>
-              <entry key="studentsummer">
-                <value>
-                  <DataStoreSettings>
-                    <option name="nameLengthMode" value="POSTGRES" />
-                    <option name="supportedTypes">
-                      <option value="postgres" />
-                    </option>
-                  </DataStoreSettings>
-                </value>
-              </entry>
             </map>
           </option>
         </ModuleSettings>

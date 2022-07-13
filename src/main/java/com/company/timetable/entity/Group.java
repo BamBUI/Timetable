@@ -10,7 +10,9 @@ import java.util.List;
 import java.util.UUID;
 
 @JmixEntity
-@Table(name = "GROUP_")
+@Table(name = "GROUP_", indexes = {
+        @Index(name = "IDX_GROUP_SCHEDULE_ID", columnList = "SCHEDULE_ID", unique = true)
+})
 @Entity(name = "Group_")
 public class Group {
     @JmixGeneratedValue
@@ -29,23 +31,24 @@ public class Group {
     @ManyToMany
     private List<Student> student;
 
-    @JoinTable(name = "CCU_CLASSES_GROUP_LINK",
-            joinColumns = @JoinColumn(name = "GROUP_ID", referencedColumnName = "ID"),
-            inverseJoinColumns = @JoinColumn(name = "C_C_U_CLASSES_ID", referencedColumnName = "ID"))
-    @ManyToMany
-    private List<CCUClasses> schedule;
+    @JoinColumn(name = "SCHEDULE_ID", unique = true)
+    @ManyToOne(fetch = FetchType.LAZY)
+    private CCUClasses schedule;
 
-    public List<CCUClasses> getSchedule() {
+    public CCUClasses getSchedule() {
         return schedule;
     }
 
-    public void setSchedule(List<CCUClasses> schedule) {
+    public void setSchedule(CCUClasses schedule) {
         this.schedule = schedule;
     }
+
 
     public List<Student> getStudent() {
         return student;
     }
+
+
 
     public void setStudent(List<Student> student) {
         this.student = student;

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1" author="Timetable">
+        <createTable tableName="CCU_CLASSES_GROUP_LINK">
+            <column name="C_C_U_CLASSES_ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_CCU_CLASSES_GROUP_LINK"/>
+            </column>
+            <column name="GROUP_ID" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_CCU_CLASSES_GROUP_LINK"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="2" author="Timetable">
+        <addForeignKeyConstraint baseColumnNames="C_C_U_CLASSES_ID" baseTableName="CCU_CLASSES_GROUP_LINK"
+                                 constraintName="FK_CCUCLAGRO_ON_C_C_U_CLASSES" referencedColumnNames="ID"
+                                 referencedTableName="CCU_CLASSES"/>
+    </changeSet>
+    <changeSet id="3" author="Timetable">
+        <addForeignKeyConstraint baseColumnNames="GROUP_ID" baseTableName="CCU_CLASSES_GROUP_LINK"
+                                 constraintName="FK_CCUCLAGRO_ON_GROUP" referencedColumnNames="ID"
+                                 referencedTableName="GROUP_"/>
+    </changeSet>
+</databaseChangeLog>
