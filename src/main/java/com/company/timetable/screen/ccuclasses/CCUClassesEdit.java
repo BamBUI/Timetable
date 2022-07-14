@@ -24,7 +24,7 @@ public class CCUClassesEdit extends StandardEditor<CCUClasses> {
     int inputCapacity = 0;
     int auditoryCapacity = 0;
 
-    int count = 0;
+    int countTeach = 0, countGroup;
 
     @Autowired
     private TextField<String> timeField;
@@ -47,36 +47,41 @@ public class CCUClassesEdit extends StandardEditor<CCUClasses> {
     @Autowired
     private CollectionPropertyContainer<Group> groupDc;
 
+    //Проверка есть ли такое время у преподавателя уже.
     @Subscribe("groupTable")
     public void onGroupTableSelection(Table.SelectionEvent<Group> event) {
-        List<CCUClasses> getTeachTime;
-        List<String> getAudTime;
-        //String getAudTime;
 
-        //String[] getTeachTime = new String[100];
+        List<CCUClasses> getTeachTime;
+        CCUClasses getGroupTime;
+        List<String> getAudTime;
+
         getAudTime = Collections.singletonList(timeField.getValue());
+
         String var1 = null;
-        //String getTeachTime = null;
 
         teacherField.getValue().getClasses().isEmpty();
-        var1 = String.valueOf(teacherField.getValue().getClasses());
+        getGroupTime = (groupDc.getItem().getSchedule());
+
         getTeachTime = (teacherField.getValue().getClasses());
 
         for (int i = 0; i < getTeachTime.size();i++){
-            //if((getTeachTime.get(i)).equals(getAudTime){
-            if(Objects.equals(getTeachTime.get(i).getTime(), getAudTime.get(0))){
-                count++;
-                if(count>1){
+
+            if( Objects.equals(getTeachTime.get(i).getTime(), getAudTime.get(0))){
+                countTeach++;
+                if(Objects.equals(getGroupTime.getTime(),getAudTime.get(0))){
+                        notifications.create()
+                                .withCaption("Совпадение у группы")
+                                .withDescription("Поменяйте группу, у неё уже есть пара в это время")
+                                .show();
+                        disableCommitActions();
+                }
+                if(countTeach > 1){
                     notifications.create()
                             .withCaption("Совпадение у преподавателя")
                             .withDescription("Поменяйте преподавателя, у него уже есть пара в это время")
                             .show();
                     disableCommitActions();
                 }
-            }
-            else{
-                commitChanges().then(() -> {
-                    commitActionPerformed = true;});
             }
         }
     }

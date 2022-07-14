@@ -11,7 +11,7 @@ import java.util.UUID;
 
 @JmixEntity
 @Table(name = "GROUP_", indexes = {
-        @Index(name = "IDX_GROUP_SCHEDULE_ID", columnList = "SCHEDULE_ID", unique = true)
+        @Index(name = "IDX_GROUP_SCHEDULE_ID", columnList = "SCHEDULE_ID")
 })
 @Entity(name = "Group_")
 public class Group {
@@ -30,8 +30,7 @@ public class Group {
             inverseJoinColumns = @JoinColumn(name = "STUDENT_ID", referencedColumnName = "ID"))
     @ManyToMany
     private List<Student> student;
-
-    @JoinColumn(name = "SCHEDULE_ID", unique = true)
+    @JoinColumn(name = "SCHEDULE_ID")
     @ManyToOne(fetch = FetchType.LAZY)
     private CCUClasses schedule;
 
@@ -43,11 +42,9 @@ public class Group {
         this.schedule = schedule;
     }
 
-
     public List<Student> getStudent() {
         return student;
     }
-
 
 
     public void setStudent(List<Student> student) {

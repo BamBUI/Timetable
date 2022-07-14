@@ -6,7 +6,6 @@ import io.jmix.core.metamodel.annotation.JmixEntity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -28,7 +27,7 @@ public class Teacher {
     @NotNull
     private String email;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "teacher", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
     private List<CCUClasses> classes;
 
     public List<CCUClasses> getClasses() {

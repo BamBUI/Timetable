@@ -44,20 +44,20 @@ public class CCUClasses {
     @OneToMany(mappedBy = "schedule")
     private List<Group> group;
 
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
     public void setGroup(List<Group> group) {
         this.group = group;
     }
 
     public List<Group> getGroup() {
         return group;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getTime() {
+        return time;
     }
 
     public Auditorium getClasses() {
