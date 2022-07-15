@@ -50,7 +50,7 @@
                 </entityPicker>
             </column>
         </form>
-        <groupBox id="groupBox" caption="msg://com.company.timetable.entity/CCUClasses.group">
+        <groupBox id="groupBox" caption="msg://CCUClasses.group">
             <table id="groupTable" dataContainer="groupDc" width="100%" height="200px">
                 <actions>
                     <action id="add" type="add"/>
@@ -58,7 +58,6 @@
                 </actions>
                 <columns>
                     <column id="name"/>
-                    <column id="schedule"/>
                 </columns>
                 <buttonsPanel>
                     <button action="groupTable.add"/>
@@ -70,5 +69,12 @@
             <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
             <button id="closeBtn" action="windowClose"/>
         </hbox>
+        <button id="teacherCheck"
+        caption = "Проверить преподавателя"/>
+        <button id="groupCheck"
+        caption = "Проверить группу"/>
+        <button id="auditoryCheck"
+        caption = "Проверить аудиторию"/>
+
     </layout>
 </window>

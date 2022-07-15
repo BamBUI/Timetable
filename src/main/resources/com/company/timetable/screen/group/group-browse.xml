@@ -50,7 +50,6 @@
             <columns>
                 <column id="name"/>
                 <column id="student"/>
-                <column id="schedule"/>
             </columns>
             <simplePagination/>
             <buttonsPanel id="buttonsPanel"

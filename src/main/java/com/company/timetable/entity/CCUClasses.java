@@ -18,31 +18,49 @@ import java.util.UUID;
 @Entity
 public class CCUClasses {
     @JmixGeneratedValue
+    @InstanceName
     @Column(name = "ID", nullable = false)
     @Id
     private UUID id;
 
-    @Column(name = "DAY_", nullable = false)
     @NotNull
+    @Column(name = "DAY_", nullable = false)
     private LocalDate day;
 
     @NotNull
-    @InstanceName
     @Column(name = "TIME_", nullable = false)
     private String time;
 
-    @JoinColumn(name = "CLASSES_ID", nullable = false)
-    @NotNull
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    private Auditorium classes;
 
+    @JoinColumn(name = "CLASSES_ID")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Auditorium classes;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "TEACHER_ID", nullable = false)
     private Teacher teacher;
 
-    @OneToMany(mappedBy = "schedule")
+    @JoinTable(name = "CCU_CLASSES_GROUP_LINK",
+            joinColumns = @JoinColumn(name = "C_C_U_CLASSES_ID", referencedColumnName = "ID"),
+            inverseJoinColumns = @JoinColumn(name = "GROUP_ID", referencedColumnName = "ID"))
+    @ManyToMany
     private List<Group> group;
+
+    public Auditorium getClasses() {
+        return classes;
+    }
+
+    public void setClasses(Auditorium classes) {
+        this.classes = classes;
+    }
+
+    public void setDay(LocalDate day) {
+        this.day = day;
+    }
+
+    public LocalDate getDay() {
+        return day;
+    }
 
     public void setGroup(List<Group> group) {
         this.group = group;
@@ -60,28 +78,12 @@ public class CCUClasses {
         return time;
     }
 
-    public Auditorium getClasses() {
-        return classes;
-    }
-
-    public void setClasses(Auditorium classes) {
-        this.classes = classes;
-    }
-
     public Teacher getTeacher() {
         return teacher;
     }
 
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
-    }
-
-    public LocalDate getDay() {
-        return day;
-    }
-
-    public void setDay(LocalDate day) {
-        this.day = day;
     }
 
     public UUID getId() {
@@ -91,6 +93,5 @@ public class CCUClasses {
     public void setId(UUID id) {
         this.id = id;
     }
-
 
 }

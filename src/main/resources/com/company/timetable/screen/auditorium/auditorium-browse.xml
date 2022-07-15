@@ -6,7 +6,6 @@
     <data readOnly="true">
         <collection id="auditoriumsDc"
                     class="com.company.timetable.entity.Auditorium">
-            <fetchPlan extends="_base"/>
             <loader id="auditoriumsDl">
                 <query>
                     <![CDATA[select e from Auditorium e]]>

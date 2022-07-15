@@ -48,7 +48,6 @@
             <columns>
                 <column id="name"/>
                 <column id="email"/>
-                <column id="classes"/>
             </columns>
             <simplePagination/>
             <buttonsPanel id="buttonsPanel"
