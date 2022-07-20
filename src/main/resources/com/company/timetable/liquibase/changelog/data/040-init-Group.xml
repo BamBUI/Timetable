@@ -1,0 +1,39 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1" author="Timetable">
+        <insert tableName="GROUP_" dbms="postgresql, mssql, hsqldb">
+            <column name="ID" value="2433f98f-439a-49c7-a4bd-db1bcde79b33"/>
+            <column name="NAME" value="IVT-01"/>
+            <column name="VERSION" value="1"/>
+        </insert>
+
+        <insert tableName="GROUP_" dbms="postgresql, mssql, hsqldb">
+            <column name="ID" value="5734cd0c-4b93-4e5c-a893-01cd9d2afd55"/>
+            <column name="NAME" value="IST-01"/>
+            <column name="VERSION" value="1"/>
+        </insert>
+
+        <insert tableName="GROUP_" dbms="postgresql, mssql, hsqldb">
+            <column name="ID" value="508709f3-5f44-4b68-b183-0cf709e2f219"/>
+            <column name="NAME" value="ICT-01"/>
+            <column name="VERSION" value="1"/>
+        </insert>
+
+        <insert tableName="GROUP_" dbms="postgresql, mssql, hsqldb">
+            <column name="ID" value="8ea10a8d-a926-44f8-9cc1-e153ee27feeb"/>
+            <column name="NAME" value="RPIS-01"/>
+            <column name="VERSION" value="1"/>
+        </insert>
+
+        <insert tableName="GROUP_" dbms="postgresql, mssql, hsqldb">
+            <column name="ID" value="0be63cbd-12b3-4193-9be9-4696e88738a2"/>
+            <column name="NAME" value="PI-01"/>
+            <column name="VERSION" value="1"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

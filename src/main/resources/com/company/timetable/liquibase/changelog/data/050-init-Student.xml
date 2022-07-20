@@ -1,0 +1,44 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1" author="Timetable">
+        <insert tableName="STUDENT" dbms="postgresql, mssql, hsqldb">
+            <column name="ID" value="1f6b01f4-ecbc-4bfe-b5ce-233dd40de1d5"/>
+            <column name="NAME" value="Paul Mironov"/>
+            <column name="EMAIL" value="190085@edu.psuti.ru"/>
+            <column name="VERSION" value="1"/>
+        </insert>
+
+        <insert tableName="STUDENT" dbms="postgresql, mssql, hsqldb">
+            <column name="ID" value="e965d69c-c3ad-40e3-acc9-f6c84846bc1c"/>
+            <column name="NAME" value="Max Itruhin"/>
+            <column name="EMAIL" value="190086@edu.psuti.ru"/>
+            <column name="VERSION" value="1"/>
+        </insert>
+
+        <insert tableName="STUDENT" dbms="postgresql, mssql, hsqldb">
+            <column name="ID" value="4fcc9b58-d7c2-4094-895e-e7a3430bb59b"/>
+            <column name="NAME" value="Yaroslav Slastunov"/>
+            <column name="EMAIL" value="190087@edu.psuti.ru"/>
+            <column name="VERSION" value="1"/>
+        </insert>
+
+        <insert tableName="STUDENT" dbms="postgresql, mssql, hsqldb">
+            <column name="ID" value="65ef22a6-ea73-45da-8444-977f61e63355"/>
+            <column name="NAME" value="Sasha Ermakov"/>
+            <column name="EMAIL" value="190088@edu.psuti.ru"/>
+            <column name="VERSION" value="1"/>
+        </insert>
+
+        <insert tableName="STUDENT" dbms="postgresql, mssql, hsqldb">
+            <column name="ID" value="866abe9c-9955-412d-b8c6-0c1c0825b57b"/>
+            <column name="NAME" value="Paul Dmitriev"/>
+            <column name="EMAIL" value="190089@edu.psuti.ru"/>
+            <column name="VERSION" value="1"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

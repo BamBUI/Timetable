@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1" author="Timetable">
+        <addColumn tableName="AUDITORIUM">
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="DATETIME"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="DATETIME"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="DATETIME"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="2" author="Timetable">
+        <addColumn tableName="CCU_CLASSES">
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="DATETIME"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="DATETIME"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="DATETIME"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="3" author="Timetable">
+        <addColumn tableName="GROUP_">
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="DATETIME"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="DATETIME"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="DATETIME"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="4" author="Timetable">
+        <addColumn tableName="STUDENT">
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="DATETIME"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="DATETIME"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="DATETIME"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="5" author="Timetable">
+        <addColumn tableName="TEACHER">
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="DATETIME"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="DATETIME"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="DATETIME"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="6" author="Timetable">
+        <addColumn tableName="USER_">
+            <column name="CREATED_BY" type="VARCHAR(255)"/>
+            <column name="CREATED_DATE" type="DATETIME"/>
+            <column name="DELETED_BY" type="VARCHAR(255)"/>
+            <column name="DELETED_DATE" type="DATETIME"/>
+            <column name="LAST_MODIFIED_BY" type="VARCHAR(255)"/>
+            <column name="LAST_MODIFIED_DATE" type="DATETIME"/>
+        </addColumn>
+    </changeSet>
+    <changeSet id="7" author="Timetable">
+        <addColumn tableName="AUDITORIUM">
+            <column defaultValueNumeric="1" name="VERSION" type="INT"/>
+        </addColumn>
+
+        <addNotNullConstraint columnName="VERSION" defaultNullValue="0" tableName="AUDITORIUM"/>
+    </changeSet>
+    <changeSet id="8" author="Timetable">
+        <addColumn tableName="CCU_CLASSES">
+            <column defaultValueNumeric="1" name="VERSION" type="INT"/>
+        </addColumn>
+
+        <addNotNullConstraint columnName="VERSION" defaultNullValue="0" tableName="CCU_CLASSES"/>
+    </changeSet>
+    <changeSet id="9" author="Timetable">
+        <addColumn tableName="GROUP_">
+            <column defaultValueNumeric="1" name="VERSION" type="INT"/>
+        </addColumn>
+
+        <addNotNullConstraint columnName="VERSION" defaultNullValue="0" tableName="GROUP_"/>
+    </changeSet>
+    <changeSet id="10" author="Timetable">
+        <addColumn tableName="STUDENT">
+            <column defaultValueNumeric="1" name="VERSION" type="INT"/>
+        </addColumn>
+
+        <addNotNullConstraint columnName="VERSION" defaultNullValue="0" tableName="STUDENT"/>
+    </changeSet>
+    <changeSet id="11" author="Timetable">
+        <addColumn tableName="TEACHER">
+            <column defaultValueNumeric="1" name="VERSION" type="INT"/>
+        </addColumn>
+
+        <addNotNullConstraint columnName="VERSION" defaultNullValue="0" tableName="TEACHER"/>
+    </changeSet>
+    <changeSet id="12" author="Timetable">
+        <addDefaultValue columnDataType="int" columnName="VERSION" defaultValueNumeric="1" tableName="USER_"/>
+    </changeSet>
+</databaseChangeLog>

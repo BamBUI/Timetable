@@ -1,0 +1,46 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1" author="Timetable">
+        <insert tableName="TEACHER" dbms="postgresql, mssql, hsqldb">
+            <column name="ID" value="ab8340e8-1755-41d4-be84-ba9c932ae377"/>
+            <column name="NAME" value="1"/>
+            <column name="EMAIL" value="1@edu.psuti.ru"/>
+            <column name="VERSION" value="1"/>
+        </insert>
+
+        <insert tableName="TEACHER" dbms="postgresql, mssql, hsqldb">
+            <column name="ID" value="517f3119-e11c-415e-a3b9-c4ead133ccd6"/>
+            <column name="NAME" value="2"/>
+            <column name="EMAIL" value="2@edu.psuti.ru"/>
+            <column name="VERSION" value="1"/>
+        </insert>
+
+        <insert tableName="TEACHER" dbms="postgresql, mssql, hsqldb">
+            <column name="ID" value="a0cfbd80-d90f-487a-b6e7-d8b6188179de"/>
+            <column name="NAME" value="3"/>
+            <column name="EMAIL" value="3@edu.psuti.ru"/>
+            <column name="VERSION" value="1"/>
+        </insert>
+
+        <insert tableName="TEACHER" dbms="postgresql, mssql, hsqldb">
+            <column name="ID" value="181ac5eb-d844-4253-98e1-262e3131a5dd"/>
+            <column name="NAME" value="4"/>
+            <column name="EMAIL" value="4@edu.psuti.ru"/>
+            <column name="VERSION" value="1"/>
+        </insert>
+
+        <insert tableName="TEACHER" dbms="postgresql, mssql, hsqldb">
+            <column name="ID" value="a870c726-2704-4303-aeec-937844e888a1"/>
+            <column name="NAME" value="5"/>
+            <column name="EMAIL" value="5@edu.psuti.ru"/>
+            <column name="VERSION" value="1"/>
+        </insert>
+
+
+    </changeSet>
+
+</databaseChangeLog>
