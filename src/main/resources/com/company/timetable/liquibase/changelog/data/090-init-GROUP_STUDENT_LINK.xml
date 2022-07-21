@@ -1,0 +1,35 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1" author="Timetable">
+        <insert tableName="group_student_link" dbms="postgresql, mssql, hsqldb">
+            <column name="group_id" value="2433f98f-439a-49c7-a4bd-db1bcde79b33"/>
+            <column name="student_id" value="1f6b01f4-ecbc-4bfe-b5ce-233dd40de1d5"/>
+        </insert>
+
+        <insert tableName="group_student_link" dbms="postgresql, mssql, hsqldb">
+            <column name="group_id" value="2433f98f-439a-49c7-a4bd-db1bcde79b33"/>
+            <column name="student_id" value="e965d69c-c3ad-40e3-acc9-f6c84846bc1c"/>
+        </insert>
+
+        <insert tableName="group_student_link" dbms="postgresql, mssql, hsqldb">
+            <column name="group_id" value="2433f98f-439a-49c7-a4bd-db1bcde79b33"/>
+            <column name="student_id" value="4fcc9b58-d7c2-4094-895e-e7a3430bb59b"/>
+        </insert>
+
+        <insert tableName="group_student_link" dbms="postgresql, mssql, hsqldb">
+            <column name="group_id" value="2433f98f-439a-49c7-a4bd-db1bcde79b33"/>
+            <column name="student_id" value="65ef22a6-ea73-45da-8444-977f61e63355"/>
+        </insert>
+
+        <insert tableName="group_student_link" dbms="postgresql, mssql, hsqldb">
+            <column name="group_id" value="2433f98f-439a-49c7-a4bd-db1bcde79b33"/>
+            <column name="student_id" value="866abe9c-9955-412d-b8c6-0c1c0825b57b"/>
+        </insert>
+
+    </changeSet>
+
+</databaseChangeLog>

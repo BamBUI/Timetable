@@ -17,7 +17,9 @@ import java.util.List;
 import java.util.UUID;
 
 @JmixEntity
-@Table(name = "GROUP_")
+@Table(name = "GROUP_", indexes = {
+        @Index(name = "IDX_GROUP_C_CU_CLASSES_ID", columnList = "C_CU_CLASSES_ID")
+})
 @Entity(name = "Group_")
 public class Group {
     @JmixGeneratedValue
@@ -72,6 +74,17 @@ public class Group {
     @Column(name = "DELETED_DATE")
     @Temporal(TemporalType.TIMESTAMP)
     private Date deletedDate;
+    @JoinColumn(name = "C_CU_CLASSES_ID")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private CCUClasses cCUClasses;
+
+    public CCUClasses getCCUClasses() {
+        return cCUClasses;
+    }
+
+    public void setCCUClasses(CCUClasses cCUClasses) {
+        this.cCUClasses = cCUClasses;
+    }
 
     public Date getDeletedDate() {
         return deletedDate;

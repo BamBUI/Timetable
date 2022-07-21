@@ -1,0 +1,17 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.5.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1" author="Timetable">
+        <insert tableName="CCU_CLASSES" dbms="postgresql, mssql, hsqldb">
+            <column name="ID" value="eef0dd63-b22a-4b5a-ac53-51f7a008dcc9"/>
+            <column name="DAY_" value="20.07.2022"/>
+            <column name="TIME_" value="08:10"/>
+            <column name="CLASSES_ID" value="aa7f5c2d-0c27-4f5d-a113-016ffebf53ca"/>
+            <column name="TEACHER_ID" value="ab8340e8-1755-41d4-be84-ba9c932ae377"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
